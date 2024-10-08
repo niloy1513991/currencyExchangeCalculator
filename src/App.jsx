@@ -6,7 +6,7 @@ function App() {
   const [outputCurrencyValue, setOutputCurrencyValue] = useState("");
   const [outputCurrencyName, setOutputCurrencyName] = useState("USD");
   const [inputCurrencyName, setInputCurrencyName] = useState("BDT");
-  const [exchangeRates, setExchangeRates] = useState({});
+  // const [exchangeRates, setExchangeRates] = useState({});
 
   const fetchCurrencyApi = async () => {
     try {
@@ -27,7 +27,7 @@ function App() {
       "https://v6.exchangerate-api.com/v6/c29155f8e4ec45462fbc87b3/latest/USD"
     )
       .then((response) => response.json())
-      .then((data) => setExchangeRates(data.conversion_rates))
+      // .then((data) => setExchangeRates(data.conversion_rates))
       .catch((error) => console.error("Error fetching exchange rates:", error));
   }, []);
 
@@ -38,8 +38,8 @@ function App() {
   const handleReset = () => {
     setInputCurrencyValue("");
     setOutputCurrencyValue("");
-    setOutputCurrencyName("USD");
-    setInputCurrencyName("BDT");
+    // setOutputCurrencyName("USD");
+    // setInputCurrencyName("BDT");
   };
 
   return (
@@ -128,16 +128,16 @@ function App() {
         </div>
         <div className="div mx-auto mb-2 mt-1 flex gap-8">
           <button
-            className="w-32 h-8 flex text-center bg-green-400 items-center justify-center text-xl font- text-slate-900 rounded-md"
-            onClick={handleConvert}
-          >
-            Convert
-          </button>
-          <button
             className="w-32 h-8 flex text-center bg-red-400 items-center justify-center text-xl text-slate-700 rounded-md"
             onClick={handleReset}
           >
             Clear
+          </button>
+          <button
+            className="w-32 h-8 flex text-center bg-green-400 items-center justify-center text-xl font- text-slate-900 rounded-md"
+            onClick={handleConvert}
+          >
+            Convert
           </button>
         </div>
         <div className="output bg-green-200 h-44 w-80 mx-auto rounded-lg flex-col pt-3">
